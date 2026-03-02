@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1016917709045",
+    "project_id": "qawafi-baf04",
+    "storage_bucket": "qawafi-baf04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016917709045:android:b56d8975f1dcd3f98135bc",
+        "android_client_info": {
+          "package_name": "ly.com.qawafi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhVI1qr3xiwioRgItdlr2cdjX9XxHG4bg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

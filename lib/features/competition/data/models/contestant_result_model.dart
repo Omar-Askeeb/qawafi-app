@@ -1,0 +1,85 @@
+import '../../domain/entities/contestant_result_entity.dart';
+
+class ContestantResultModel extends ContestantResult {
+  ContestantResultModel({
+    required super.trackId,
+    required super.contestantId,
+    required super.contestantName,
+    required super.contestantDescription,
+    required super.phoneNumber,
+    required super.numberOfVotes,
+    required super.contestantImageSrc,
+    required super.created,
+    required super.createdBy,
+    required super.lastModified,
+    required super.lastModifiedBy,
+    required super.isDisabled,
+    required super.trackDescription,
+    required super.tracksrc,
+    required super.trackImage,
+    required super.duration,
+    required super.competitionName,
+    required super.competitionId,
+    required super.isWinner,
+    super.userVoteFlag = false,
+    required super.winningDate,
+    required super.eliminated,
+    super.eliminatedDate,
+  });
+
+    factory ContestantResultModel.fromJson(Map<String, dynamic> json) {
+    return ContestantResultModel(
+      trackId: json['trackId']?.toString() ?? '',
+      contestantId: json['contestantId']?.toString() ?? '',
+      contestantName: json['contestantName'] ?? '',
+      contestantDescription: json['contestantDescription'] ?? '',
+      phoneNumber: int.tryParse(json['phoneNumber']?.toString() ?? '0') ?? 0,
+      numberOfVotes: int.tryParse(json['numberOfVotes']?.toString() ?? '0') ?? 0,
+      contestantImageSrc: json['contestantImageSrc'] ?? '',
+      created: DateTime.parse(json['created'] ?? DateTime.now().toIso8601String()),
+      createdBy: json['createdBy'] ?? '',
+      lastModified: json['lastModified'] != null ? DateTime.parse(json['lastModified']) : null,
+      lastModifiedBy: json['lastModifiedBy'],
+      isDisabled: json['isDisabled'] ?? false,
+      trackDescription: json['trackDescription'] ?? '',
+      tracksrc: json['tracksrc'] ?? '',
+      trackImage: json['trackImage'] ?? '',
+      duration: json['duration'] ?? '',
+      competitionName: json['competitionName'] ?? '',
+      competitionId: json['competitionId']?.toString() ?? '',
+       isWinner: json['isWinner'] ?? false,
+      userVoteFlag: json['userVoteFlag'] ?? false,
+      winningDate: json['winningDate'] != null ? DateTime.parse(json['winningDate']) : null,
+      eliminated: json['eliminated'] ?? false,
+      eliminatedDate: json['eliminatedDate'] != null ? DateTime.parse(json['eliminatedDate']) : null,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'trackId': trackId,
+      'contestantId': contestantId,
+      'contestantName': contestantName,
+      'contestantDescription': contestantDescription,
+      'phoneNumber': phoneNumber,
+      'numberOfVotes': numberOfVotes,
+      'contestantImageSrc': contestantImageSrc,
+      'created': created.toIso8601String(),
+      'createdBy': createdBy,
+      'lastModified': lastModified?.toIso8601String(),
+      'lastModifiedBy': lastModifiedBy,
+      'isDisabled': isDisabled,
+      'trackDescription': trackDescription,
+      'tracksrc': tracksrc,
+      'trackImage': trackImage,
+      'duration': duration,
+      'competitionName': competitionName,
+      'competitionId': competitionId,
+      'isWinner': isWinner,
+      'userVoteFlag': userVoteFlag,
+      'winningDate': winningDate?.toIso8601String(),
+      'eliminated': eliminated,
+      'eliminatedDate': eliminatedDate?.toIso8601String(),
+    };
+  }
+}

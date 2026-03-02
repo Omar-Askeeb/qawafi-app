@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request with Token</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        #loading {
+            display: none;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Processing Request...</h1>
+    <div id="loading">Loading...</div>
+
+    <script>
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function setLoading(isLoading) {
+            const loadingDiv = document.getElementById('loading');
+            loadingDiv.style.display = isLoading ? 'block' : 'none';
+        }
+
+        function navigateToOtpPage() {
+            // This function can be customized to navigate to your OTP page
+            window.location.href = 'otp.html';
+        }
+
+        function makeApiCall(token, id) {
+            setLoading(true);
+            fetch(`https://example.com/api1/${id}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('API Response:', data);
+                    setLoading(false);
+                    navigateToOtpPage(); // Go to OTP page after successful API call
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    setLoading(false);
+                });
+        }
+
+        // Main logic
+        (function () {
+            const token = localStorage.getItem('authToken');
+            const id = getUrlParameter('id');
+
+            if (token && id) {
+                makeApiCall(token, id);
+            } else {
+                console.error('Token or ID missing');
+            }
+        })();
+    </script>
+</body>
+
+</html>
