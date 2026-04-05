@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:http/http.dart ' as http;
+import 'package:http/http.dart' as http;
 import 'package:qawafi_app/core/api/end_points.dart';
 import 'package:qawafi_app/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:qawafi_app/core/utils/refresh_token_expired.dart';

@@ -37,8 +37,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
-    // _startDelay()
     _timer = Timer(const Duration(seconds: 3),
         () => context.read<SplashBloc>().add(SplashCheck()));
   }
@@ -61,6 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return ScaffoldWithBackgroundImage(
       scaffod: Scaffold(
+        backgroundColor: Colors.transparent,
         body: BlocListener<SplashBloc, SplashState>(
           listener: (context, state) {
             // TODO: implement listener

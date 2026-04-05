@@ -28,11 +28,6 @@ Future<void> initDependencies() async {
   _initCompetition();
   // _initBlog();
 
-  // final supabase = await Supabase.initialize(
-  //   url: AppSecrets.supabaseUrl,
-  //   anonKey: AppSecrets.supabaseAnonKey,
-  // );
-
   Hive.defaultDirectory = (await getApplicationDocumentsDirectory()).path;
 
   serviceLocator.registerLazySingleton<LocalStorage>(() => LocalStorageImpl());

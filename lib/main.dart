@@ -273,9 +273,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfigPercentage().init(context);
-
-    SizeConfig().init(context);
     return MaterialApp(
       navigatorKey: navigatorKey,
       locale: const Locale(
@@ -297,10 +294,8 @@ class _MyAppState extends State<MyApp> {
           return state is AppUserLoggedIn;
         },
         builder: (context, isLoggedIn) {
-          // return const HomePage();
-          if (isLoggedIn) {
-            return const SplashScreen();
-          }
+          SizeConfigPercentage().init(context);
+          SizeConfig().init(context);
           return const SplashScreen();
         },
       ),

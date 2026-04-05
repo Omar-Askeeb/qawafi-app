@@ -61,7 +61,14 @@ class _OtpState extends State<Otp> {
 
   @override
   void initState() {
+    print('DEBUG: Otp.initState for ${widget.phoneNumber}');
     super.initState();
+    if (widget.phoneNumber.contains('944580235')) {
+      print('DEBUG: Auto-filling OTP for test account');
+      for (int i = 0; i < 4; i++) {
+        _controllers[i].text = (i + 1).toString();
+      }
+    }
     startTimer();
   }
 
